@@ -29,9 +29,17 @@ _powerline_tmux_set_columns() {
 	_powerline_tmux_setenv COLUMNS "$COLUMNS"
 }
 
+
 _powerline_prompt() {
 	local last_exit_code=$?
-	PS1="$($POWERLINE_COMMAND shell left -r bash_prompt --last_exit_code=$last_exit_code --jobnum="$(jobs -p|wc -l)")"
+        master=1
+        if [[  $$ -ne $(ps -p $$ -o sid=) ]]; then 
+           master=0 
+        fi
+        hgstat=$( hg sum 2>/dev/null | awk '/parent:/ || /branch/ { print $2 } ')
+        hgstat=$( echo $hgstat | tr ' ' ':')
+
+	PS1="$($POWERLINE_COMMAND shell left -r bash_prompt --last_exit_code=$last_exit_code --jobnum="$(jobs -p|wc -l)" --smaster=$master --stat=$hgstat)"
 	_powerline_tmux_set_pwd
 	return $last_exit_code
 }

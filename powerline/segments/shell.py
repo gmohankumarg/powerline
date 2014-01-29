@@ -4,6 +4,32 @@ from powerline.theme import requires_segment_info
 
 
 @requires_segment_info
+def hgstat(pl, segment_info, show_zero=False):
+	'''Return hg status 
+
+	:param bool show_zero:
+		    Not used.
+	'''
+	hgstat = segment_info['args'].stat
+	if hgstat is None:
+	    return None
+	else:
+	    return str(hgstat) 
+
+@requires_segment_info
+def smaster(pl, segment_info, show_zero=False):
+	'''Return if this shell is a session leader. 
+
+	:param bool show_zero:
+		  Not used.
+	'''
+	master = segment_info['args'].smaster
+	if master is None:
+	    return None 
+	if master == 1:
+	    return str("L")
+
+@requires_segment_info
 def jobnum(pl, segment_info, show_zero=False):
 	'''Return the number of jobs.
 

@@ -51,6 +51,8 @@ def get_argparser(parser=None, *args, **kwargs):
 	p.add_argument('--last_exit_code', metavar='INT', type=int)
 	p.add_argument('--last_pipe_status', metavar='LIST', default='', type=lambda s: [int(status) for status in s.split()])
 	p.add_argument('--jobnum', metavar='INT', type=int)
+	p.add_argument('--smaster', metavar='INT', type=int)
+	p.add_argument('--stat', type=str)
 	p.add_argument('-c', '--config', metavar='KEY.KEY=VALUE', action='append')
 	p.add_argument('-t', '--theme_option', metavar='THEME.KEY.KEY=VALUE', action='append')
 	p.add_argument('-p', '--config_path', metavar='PATH')
