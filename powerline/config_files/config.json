@@ -3,12 +3,12 @@
 		"term_truecolor": false,
 		"dividers": {
 			"left": {
-				"hard": " ",
-				"soft": " "
+				"hard": " ",
+				"soft": "/"
 			},
 			"right": {
-				"hard": " ",
-				"soft": " "
+				"hard": " ",
+				"soft": " |"
 			}
 		},
 		"spaces": 1
@@ -32,7 +32,7 @@
 			"theme": "default"
 		},
 		"vim": {
-			"colorscheme": "default",
+			"colorscheme": "solarized",
 			"theme": "default",
 			"local_themes": {
 				"cmdwin": "cmdwin",

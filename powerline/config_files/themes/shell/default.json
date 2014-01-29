@@ -17,10 +17,6 @@
 	"segments": {
 		"left": [
 			{
-				"module": "powerline.segments.shell",
-				"name": "mode"
-			},
-			{
 				"name": "hostname"
 			},
 			{
@@ -32,12 +28,20 @@
 			{
 				"name": "cwd",
 				"args": {
-					"dir_limit_depth": 3
+					"dir_limit_depth": 4 
 				}
 			},
 			{
 				"module": "powerline.segments.shell",
 				"name": "jobnum"
+			},
+			{
+				"module": "powerline.segments.shell",
+				"name": "smaster"
+			},
+			{
+				"module": "powerline.segments.shell",
+				"name": "hgstat"
 			}
 		],
 		"right": [
