@@ -36,7 +36,7 @@ _powerline_prompt() {
         if [[  $$ -ne $(ps -p $$ -o sid=) ]]; then 
            master=0 
         fi
-        hgstat=$( hg sum 2>/dev/null | awk '/parent:/ || /branch/ { print $2 } ')
+        hgstat=$( hg sum 2>/dev/null | awk '/^parent:/ || /^branch:/ { print $2 } ')
         hgstat=$( echo $hgstat | tr ' ' ':')
 
 	PS1="$($POWERLINE_COMMAND shell left -r bash_prompt --last_exit_code=$last_exit_code --jobnum="$(jobs -p|wc -l)" --smaster=$master --stat=$hgstat)"
